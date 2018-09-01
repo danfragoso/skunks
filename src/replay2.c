@@ -131,10 +131,7 @@ for(i=1;i<=nob;i++){
   }
 }
 
-
-sprintf(textglob,"%3.0f km/h",speed*3.6);
-
-
+printf("time: %1.2f sec; speed: %3.0f km/h;\n", timp, speed*3.6);
 
 setcamg(objs,&camera,&car,camflag);
 
