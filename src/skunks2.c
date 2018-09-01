@@ -240,14 +240,7 @@ for(i=1;i<=nob;i++){
 rdspeed(&car,&speed,&rotspeed,&dspeed);
 acc=dspeed/tframe;
 
-
-switch(dmode){
-  case 1: sprintf(textglob,"%3.0f km/h",speed*3.6);
-          break;
-  case -1: sprintf(textglob,"%3.0f km/h-R",speed*3.6);
-          break;
-  default: break;
-}
+printf("time: %1.2f sec; speed: %3.0f km/h;\n", timp, speed*3.6);
 
 
 #if SOUND==1
