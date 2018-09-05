@@ -98,7 +98,7 @@ printf("\r\n");
 /*Initialize SDL*/
 if(SDL_Init(SDL_INIT_VIDEO)<0){printf("Couldn't initialize SDL: %s\n", SDL_GetError());SDL_Quit();return 0;}
 /*Initialize display SDL2*/
-RGLOBwindow = SDL_CreateWindow("Skunks-4.2.0 SDL2 replay",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,SCREENWIDTH,SCREENHEIGHT,SDL_WINDOW_SHOWN);
+RGLOBwindow = SDL_CreateWindow("Skunks-4.2.0 SDL2 replay",20,40,SCREENWIDTH,SCREENHEIGHT,SDL_WINDOW_SHOWN);
 if(RGLOBwindow==NULL){
   printf("Couldn't create window: %s\n",SDL_GetError());SDL_Quit();return 0;
 }

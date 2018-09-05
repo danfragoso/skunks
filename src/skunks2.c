@@ -45,6 +45,7 @@ void SDL_UpdateRect(SDL_Surface *screen,int a,int b,int c,int d)
 #include "camera.h"
 #include "readfile.h"
 #include "game.h"
+#include "udp_srv.h"
 
 int main(int argc,char *argv[])
 {char numefis[MAXWLG];
@@ -110,7 +111,7 @@ fprintf(repf,"%s\r\n%s\r\n",argv[1],argv[2]);
 repf=NULL;
 #endif
 
-
+bsock();
 dInitODE();
 wglob=dWorldCreate();
 dWorldSetERP(wglob,0.2);
@@ -148,7 +149,7 @@ desired->userdata=volum;
 /*Initialize SDL*/
 if(SDL_Init(SDL_INIT_VIDEO)<0){printf("Couldn't initialize SDL: %s\n", SDL_GetError());SDL_Quit();return 0;}
 /*Initialize display SDL2*/
-RGLOBwindow = SDL_CreateWindow("Skunks-4.2.0 SDL2",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,SCREENWIDTH,SCREENHEIGHT,SDL_WINDOW_SHOWN);
+RGLOBwindow = SDL_CreateWindow("Skunks-4.2.0 SDL2",20,40,SCREENWIDTH,SCREENHEIGHT,SDL_WINDOW_SHOWN);
 if(RGLOBwindow==NULL){
   printf("Couldn't create window: %s\n",SDL_GetError());SDL_Quit();return 0;
 }
@@ -237,11 +238,11 @@ for(i=1;i<=nob;i++){
   }
 }
 
+pdata();
 rdspeed(&car,&speed,&rotspeed,&dspeed);
 acc=dspeed/tframe;
 
-printf("time: %1.2f sec; speed: %3.0f km/h;\n", timp, speed*3.6);
-
+printf("time: %1.2f sec;\nspeed: %3.0f km/h;\n", timp, speed*3.6);
 
 #if SOUND==1
 volum[1]=rotspeed; if (volum[1]>200){volum[1]=200;}
